@@ -1,18 +1,25 @@
+import { useEffect } from "react";
 import { WarpBackground } from "@/components/warp-background";
 import logo from "../assets/larg logog.png";
+
+declare const fbq: (...args: unknown[]) => void;
 
 const playStoreUrl = "https://play.google.com/store/apps/details?id=com.tarteeb.devtarteeb";
 
 export default function App() {
+  useEffect(() => {
+    fbq("track", "ViewContent");
+  }, []);
+
   return (
     <WarpBackground
-      className="flex min-h-screen items-center justify-center rounded-none border-0 bg-[linear-gradient(135deg,#dc1f26_0%,#8b0000_100%)] p-5"
+      className="flex min-h-screen items-center justify-center rounded-none border-0 bg-white p-5"
       perspective={140}
       beamsPerSide={4}
       beamSize={7}
       beamDelayMax={5}
       beamDuration={4}
-      gridColor="rgba(255,255,255,0.18)"
+      gridColor="rgba(15,23,42,0.12)"
     >
       <main className="w-full max-w-[540px] rounded-3xl bg-white px-9 py-11 text-center shadow-[0_10px_40px_rgba(0,0,0,0.3)] max-[480px]:px-5 max-[480px]:py-8">
         <div className="mb-5">
@@ -36,6 +43,7 @@ export default function App() {
           href={playStoreUrl}
           target="_blank"
           rel="noopener noreferrer"
+          onClick={() => fbq("track", "Lead")}
         >
           حمل التطبيق الآن
         </a>
