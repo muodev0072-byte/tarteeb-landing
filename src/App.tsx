@@ -13,7 +13,7 @@ export default function App() {
 
   return (
     <WarpBackground
-      className="flex min-h-screen items-center justify-center rounded-none border-0 bg-white p-5"
+      className="flex min-h-screen items-center justify-center rounded-none border-0 bg-[linear-gradient(135deg,#dc1f26_0%,#8b0000_100%)] p-5"
       perspective={140}
       beamsPerSide={4}
       beamSize={7}
